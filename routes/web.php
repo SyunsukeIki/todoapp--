@@ -26,3 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // ログイン後の画面
 Route::get('home','FolderController@index');
+
+// ToDoの一覧
+Route::get('todo','TodolistController@index');
+
