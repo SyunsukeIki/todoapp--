@@ -9,10 +9,21 @@
 @show
 
 @section('content')
-  <table >
-      <tr><th>フォルダ名</th><th>仕事</th></tr>
-      <tr><td>期日</td><td>2021/09/22</td></tr>
-  </table>
+
+    <div class = "tableContents">
+        <table>
+            <tr>
+                <th>フォルダ名</th>
+                <th>編集</th>
+            </tr>
+            @foreach($items as $item)
+             <tr>
+                <td>{{$item->folder_name}}</td>
+                <td>編集画面へ</td>
+            </tr>
+            @endforeach
+    </table>
+    </div>
 @endsection
 
 @section('footer')

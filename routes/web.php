@@ -25,4 +25,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 // ログイン後の画面
-Route::get('home','ToDoController@index');
+Route::get('home','FolderController@index');
