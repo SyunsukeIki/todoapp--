@@ -19,6 +19,12 @@
         @foreach($items as $item)
         <tr>
             <td>{{$item->getData()}}</td>
+            @if($item->folder != null)
+                <table width="100%">
+                    @foreach($item->folders as $obj)
+                        <tr><td>{{$obj->getData()}}</td></tr>
+                    @endforeach
+            @endif
             <td>編集画面へ</td>
         </tr>
         @endforeach

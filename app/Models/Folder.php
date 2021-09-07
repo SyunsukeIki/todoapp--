@@ -12,9 +12,15 @@ class Folder extends Model
     use HasFactory;
 
     // 表示
-    public function getData(){
+    public function getName(){
         return $this->folder_name ;
     }
+
+    // URL生成のため
+    public function getId(){
+        return $this->id;
+    }
+
     // バリデーションのルール
     protected $guarded = array('id');
 
@@ -22,6 +28,10 @@ class Folder extends Model
         'folder_name' => 'required'
     );
 
+    // has Many結合処理
+    public function folders(){
+        return $this->hasMany('App\Models\Todolist');
+    }
 
 
 }

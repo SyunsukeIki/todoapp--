@@ -18,7 +18,7 @@
         </tr>
         @foreach($items as $item)
         <tr>
-            <td>{{$item->getData()}}</td>
+            <td><a href = "todo/{{$item->getId()}}">{{$item->getName()}}</td></a>
             <td>編集画面へ</td>
         </tr>
         @endforeach

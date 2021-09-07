@@ -31,7 +31,8 @@ Route::get('folder','FolderController@index');
 Route::get('folder/add', 'FolderController@add');
 Route::post('folder/add', 'FolderController@create');
 
-
 // ToDoの一覧
-Route::get('todo','TodolistController@index');
+Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
+
+
 
