@@ -10,13 +10,13 @@
         .footer{text-align: right; font-size: 10pt; margin: 10px;
                 border-bottom: solid 1px #ccc; color: #ccc; }
         .content{height: 100%; margin-bottom: 35%;}
-        table {width: 100%;}
-        th {background-color: #999; color:fff; padding: 5px 10px; width:80%; text-align: left;}
-        td {border: solid 1px #aaa; color:#999; padding: 5px 10px;width:20%; text-align: left;}
-        .tableContents{height: 100%;}
-        a{text-decoration: none; color: black; }
+        table{padding-left: 38%; padding-top: 4%;}
+        th {background-color: #999; color:fff; padding: 5px 10px;  text-align: left; position: center;}
+        td {border: solid 1px #aaa; color:#999; padding: 5px 10px; text-align: left; position: center;}
+        a{text-decoration: none; color: black; text-align:}
         .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8}
         .add:hover{transform: scale(0.97,0.97);}
+
 
     </style>
 </head>

@@ -1,6 +1,6 @@
 
 
-@extends('layouts.todoapp')
+@extends('layouts.todoappform')
 
 @section('title','ToDoApp')
 
@@ -19,20 +19,20 @@
         </ul>
     </div>
     @endif
-    <table>
-        <form action = "/folder/add" method="post">
-            {{csrf_field()}}
-            <tr>
-                <th>新規フォルダ名</th>
-                <th>送信</th>
+    <!-- 送信フォーム -->
+    <div class = "form">
+        <table>
+            <form action = "/folder/add" method="post">
+                {{csrf_field()}}
+                <tr>
+                    <th>新規フォルダ名</th>
+                    <td><input type="text" name="folder_name" value="{{old('folder_name')}}"></td>
+                    <td><input type="submit" value="send"></td>
+                </tr>
+            </form>
+        </table>
+    </div>
 
-            </tr>
-            <tr>
-                <td><input type="text" name="folder_name" value="{{old('folder_name')}}"></td>
-                <td><input type="submit" value="send"></td>
-            </tr>
-        </form>
-    </table>
 @endsection
 
 @section('footer')
