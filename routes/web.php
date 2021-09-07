@@ -24,8 +24,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// ログイン後の画面
-Route::get('home','FolderController@index');
+// ログイン後の画面(フォルダ一覧)
+Route::get('folder','FolderController@index');
+
+// フォルダの追加
+Route::get('folder/add', 'FolderController@add');
+Route::post('folder/add', 'FolderController@create');
+
 
 // ToDoの一覧
 Route::get('todo','TodolistController@index');

@@ -4,9 +4,11 @@
 
 @section('title','ToDoApp')
 
-@section('header')
-
-@show
+@section('add')
+<div class = "add">
+<a href = "/add">+ToDo</a>
+</div>
+@endsection
 
 @section('content')
     <table>

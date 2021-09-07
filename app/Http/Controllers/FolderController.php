@@ -13,4 +13,19 @@ class FolderController extends Controller
         // views\folder\indexに$itemsを渡す
         return view('folder.index',['items' => $items]);
     }
+
+    //フォルダの追加
+    public function add(Request $request){
+        return view('folder.add');
+    }
+
+    public function create(Request $request){
+        $this->validate($request, Folder::$rules);
+        $folder = new Folder;
+        $form = $request->all();
+        unset($form['_token']);
+        $folder->fill($form)->save();
+        return redirect('folder');
+
+    }
 }
