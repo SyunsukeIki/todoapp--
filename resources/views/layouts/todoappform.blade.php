@@ -16,6 +16,7 @@
         a{text-decoration: none; color: black; text-align:}
         .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8}
         .add:hover{transform: scale(0.97,0.97);}
+        body{font-family: 'Noto Sans JP', sans-serif;}
 
 
     </style>

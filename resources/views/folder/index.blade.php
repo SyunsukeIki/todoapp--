@@ -19,10 +19,11 @@
         @foreach($items as $item)
         <tr>
             <td><a href = "todo/{{$item->getId()}}">{{$item->getName()}}</td></a>
-            <td>編集画面へ</td>
+            <td><a href = "folder/{{$item->getId()}}/edit">編集画面へ</td>
         </tr>
         @endforeach
     </table>
+
 @endsection
 
 @section('footer')

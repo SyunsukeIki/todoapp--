@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <style>
-        h1{text-align: center; background-color:#96969e;}
+        h1{text-align: center; background-color:#96969e; font-family: 'Anton', sans-serif}
         .footer{text-align: right; font-size: 10pt; margin: 10px;
                 border-bottom: solid 1px #ccc; color: #ccc; }
         .content{height: 100%; margin-bottom: 35%;}
@@ -16,14 +16,15 @@
         .tableContents{height: 100%;}
         a{text-decoration: none; color: black; }
         .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8}
-        .add:hover{transform: scale(0.97,0.97);}
+        .add:hover{transform: scale(0.99,0.99);}
+        body{font-family: 'Noto Sans JP', sans-serif;}
+
 
     </style>
 </head>
 <body>
 
-    <h1 href="/folder">@yield('title')</h1>
-
+    <h1>@yield('title')</h1>
     @section('add')
 
     @show

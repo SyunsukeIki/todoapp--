@@ -31,8 +31,15 @@ Route::get('folder','FolderController@index');
 Route::get('folder/add', 'FolderController@add');
 Route::post('folder/add', 'FolderController@create');
 
+// フォルダの編集
+// Route::get('folder/{id}/edit', 'FolderController@edit')->name('folder.getId');
+// Route::post('folder/{id}/edit', 'FolderController@update')->name('folder.getId');
+
+
 // ToDoの一覧
 Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
 
-
+// ToDoの追加
+Route::get('todo/{id}/add', 'TodolistController@add')->name('folder.getId');
+Route::post('todo/{id}/add', 'TodolistController@create')->name('folder.getId');
 

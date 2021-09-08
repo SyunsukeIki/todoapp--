@@ -16,7 +16,7 @@ class Folder extends Model
         return $this->folder_name ;
     }
 
-    // URL生成のため
+    // 各フォルダ画面に移動するURL生成のため
     public function getId(){
         return $this->id;
     }
@@ -30,8 +30,10 @@ class Folder extends Model
 
     // has Many結合処理
     public function folders(){
-        return $this->hasMany('App\Models\Todolist');
+        return $this->hasMany(Todolist::class,'todo_folder');
     }
+
+    
 
 
 }
