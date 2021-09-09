@@ -15,9 +15,10 @@
         td {border: solid 1px #aaa; color:#999; padding: 5px 10px;width:20%; text-align: left;}
         .tableContents{height: 100%;}
         a{text-decoration: none; color: black; }
-        .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8}
+        .add{padding: 0.5em 2em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8;}
         .add:hover{transform: scale(0.99,0.99);}
         body{font-family: 'Noto Sans JP', sans-serif;}
+        .message{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #e32807; opacity: 0.7; color: whitesmoke;}
 
 
     </style>
