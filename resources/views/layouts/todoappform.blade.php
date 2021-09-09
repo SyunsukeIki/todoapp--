@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    <h1 href="/folder">@yield('title')</h1>
+    <h1><a href="/folder">@yield('title')</a></h1>
 
     @section('add')
 
