@@ -5,6 +5,16 @@
 @section('title','ToDoApp')
 
 @section('add')
+    <?php
+        $current_id = request()->path();
+        // 数字だけ欲しいから、数字の前後を二回に分けてトリミング
+        $cd = str_replace('folder/','', $current_id);
+        $current = str_replace('/edit','', $cd);
+    ?>
+
+<div class = "del">
+<a href = "/folder/{{$current}}/del">削除画面へ</a>
+</div>
 
 @endsection
 
@@ -38,9 +48,7 @@
                 </tr>
             </form>
         </table>
-    <div clas="del">
-        <span><a href = "/folder/{{$current}}/del">削除する</a></span>
-    </div>
+
     </div>
 
 @endsection

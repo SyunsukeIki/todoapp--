@@ -54,11 +54,11 @@
             -->
 
             @if($todo->todo_state==1)
-            <td>未着手</td>
+            <td class="start">未着手</td>
             @elseif($todo->todo_state==2)
-            <td>進行中</td>
+            <td class="ing">進行中</td>
             @else($todo->todo_state==3)
-            <td>完了</td>
+            <td class="done">完了</td>
             @endif
 
             <!-- 期日の表示 -->

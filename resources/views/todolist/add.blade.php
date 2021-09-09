@@ -15,6 +15,7 @@
         // 数字だけ欲しいから、数字の前後を二回に分けてトリミング
         $cd = str_replace('todo/','', $current_id);
         $current = str_replace('/add','', $cd);
+        $today = date('Y年m月d日');
     ?>
     <!-- バリデーションメッセージ -->
     @if (count($errors)>0)
@@ -28,6 +29,7 @@
     @endif
     <!-- 送信フォーム -->
     <div class = "form">
+
         <table>
 
             <form action = "/todo/{{$current}}/add" method="post">
@@ -37,7 +39,7 @@
                     <td><input type="text" name="todo_name" value="{{old('todo_name')}}"></td>
                 </tr>
                     <th>タスク期日</th>
-                    <td><input type="text" name="todo_due" value="{{old('todo_due')}}"></td>
+                    <td><input type="date" min="{{$today}}}" name="todo_due" value="{{old('todo_due')}}"></td>
                 <tr>
                     <th></th>
                     <input type="hidden" name="todo_folder" value="{{$current}}">

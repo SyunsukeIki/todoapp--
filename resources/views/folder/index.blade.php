@@ -2,6 +2,7 @@
 
 @extends('layouts.todoapp')
 
+
 @section('title','ToDoApp')
 
 @section('add')
