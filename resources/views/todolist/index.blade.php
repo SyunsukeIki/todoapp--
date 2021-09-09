@@ -6,16 +6,14 @@
 
 @section('add')
 <div class = "add">
-<!-- タスクの追加 -->
 <!-- 閲覧フォルダのIDの取得 -->
     <?php
         $current_id = request()->path();
         // 数字だけに変換
         $cd = str_replace('todo/', '', $current_id);
     ?>
-
+<!-- タスクの追加 -->
 <a href = "/todo/{{$cd}}/add">+ToDo</a>
-
 
 </div>
 @endsection
@@ -31,10 +29,11 @@
             <th>編集</th>
         </tr>
 
-        <!--関数関係 -->
+        <!--変数 -->
         <?php
+            // 現在のURLの取得
             $current_id = request()->path();
-            // 数字だけに変換
+            // 数字(閲覧中のフォルダID)だけに変換
             $cd = str_replace('todo/', '', $current_id);
         ?>
         <!-- 繰り返し開始 -->
@@ -64,8 +63,8 @@
 
             <!-- 期日の表示 -->
             <td>{{$todo->todo_due}}</td>
-
-            <td>編集画面へ</td>
+            <!-- todolistsのidを取得 -->
+            <td><a href = "{{$todo->id}}/edit">編集画面</td></a>
         </tr>
         <!-- 追加の文言は一回だけ表示する -->
         @elseif($loop->index == 0)

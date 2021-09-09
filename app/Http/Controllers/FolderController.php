@@ -32,7 +32,7 @@ class FolderController extends Controller
     // フォルダの編集
     public function edit(Request $request){
         $folder = Folder::find($request->id);
-        return view('folder.edit');
+        return view('folder.edit',['form' => $folder]);
     }
 
     public function update(Request $request){
@@ -43,6 +43,17 @@ class FolderController extends Controller
         $folder->fill($form)->save();
         return redirect('folder');
 
+    }
+
+    // フォルダの削除
+    public function delete(Request $request){
+        $folder = Folder::find($request->id);
+        return view('folder.del',['form' => $folder]);
+    }
+
+    public function remove(Request $request){
+        Folder::find($request->id)->delete();
+        return redirect('/folder');
     }
 
 }

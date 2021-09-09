@@ -35,8 +35,11 @@
                 <tr>
                     <th>新規タスク</th>
                     <td><input type="text" name="todo_name" value="{{old('todo_name')}}"></td>
+                </tr>
                     <th>タスク期日</th>
                     <td><input type="text" name="todo_due" value="{{old('todo_due')}}"></td>
+                <tr>
+                    <th></th>
                     <input type="hidden" name="todo_folder" value="{{$current}}">
                     <td><input type="submit" value="send"></td>
                 </tr>

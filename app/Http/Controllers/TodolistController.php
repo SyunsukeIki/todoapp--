@@ -12,11 +12,8 @@ class TodolistController extends Controller
         // Todolist.php のモデルから取り出す
         $items = Todolist::all();
         // Folder.php のモデルから取り出す
-        $items2 = Folder::all();
-        // views\todo\indexに$itemsを渡す
         return view('todolist.index',[
             'items' => $items,
-            'items2' => $items2,
         ]);
     }
 
@@ -36,6 +33,35 @@ class TodolistController extends Controller
         $todolist->fill($form)->save();
         return redirect('/folder');
     }
+
+    // タスクの編集
+    public function edit(Request $request){
+        $todo = Todolist::find($request->id);
+        return view('todolist.edit',['form' => $todo]);
+    }
+
+    public function update(Request $request){
+        $this->validate($request, Todolist::$rules);
+        $todo = Todolist::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $todo->fill($form)->save();
+        return redirect('/folder');
+
+    }
+
+    // タスクの削除
+    public function delete(Request $request){
+        $todo = Todolist::find($request->id);
+        return view('todolist.del',['form' => $todo]);
+    }
+
+    public function remove(Request $request){
+        Todolist::find($request->id)->delete();
+        return redirect('/folder');
+
+    }
+
 
 
 }

@@ -35,6 +35,10 @@ Route::post('folder/add', 'FolderController@create');
 Route::get('folder/{id}/edit', 'FolderController@edit')->name('folder.getId');
 Route::post('folder/{id}/edit', 'FolderController@update')->name('folder.getId');
 
+// フォルダの削除
+Route::get('folder/{id}/del', 'FolderController@delete')->name('folder.getId');
+Route::post('folder/{id}/del', 'FolderController@remove')->name('folder.getId');
+
 
 // ToDoの一覧
 Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
@@ -43,3 +47,10 @@ Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
 Route::get('todo/{id}/add', 'TodolistController@add')->name('folder.getId');
 Route::post('todo/{id}/add', 'TodolistController@create')->name('folder.getId');
 
+// ToDoの編集
+Route::get('todo/{id}/edit', 'TodolistController@edit')->name('folder.getId');
+Route::post('todo/{id}/edit', 'TodolistController@update')->name('folder.getId');
+
+// ToDoの削除
+Route::get('todo/{id}/del', 'TodolistController@delete')->name('folder.getId');
+Route::post('todo/{id}/del', 'TodolistController@remove')->name('folder.getId');
