@@ -29,20 +29,20 @@ class FolderController extends Controller
 
     }
 
-    //フォルダの編集
-    // public function edit(Request $request){
-    //     $folder = Folder::find($request->id);
-    //     return view('folder.edit');
-    // }
+    // フォルダの編集
+    public function edit(Request $request){
+        $folder = Folder::find($request->id);
+        return view('folder.edit');
+    }
 
-    // public function update(Request $request){
-    //     $this->validate($request, Folder::$rules);
-    //     $folder = Folder::find($request->id);
-    //     $form = $request->all();
-    //     unset($form['_token']);
-    //     $folder->fill($form)->save();
-    //     return redirect('folder');
+    public function update(Request $request){
+        $this->validate($request, Folder::$rules);
+        $folder = Folder::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $folder->fill($form)->save();
+        return redirect('folder');
 
-    // }
+    }
 
 }

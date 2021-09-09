@@ -34,7 +34,7 @@ class TodolistController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $todolist->fill($form)->save();
-        return redirect('todo/{id}');
+        return redirect('/folder');
     }
 
 

@@ -7,9 +7,15 @@
 @section('add')
 <div class = "add">
 <!-- タスクの追加 -->
-@foreach($items as $item)
-<a href = "/todo/{{$item->getID()}}/add">+ToDo</a>
-@endforeach
+<!-- 閲覧フォルダのIDの取得 -->
+    <?php
+        $current_id = request()->path();
+        // 数字だけに変換
+        $cd = str_replace('todo/', '', $current_id);
+    ?>
+
+<a href = "/todo/{{$cd}}/add">+ToDo</a>
+
 
 </div>
 @endsection
@@ -26,22 +32,18 @@
         </tr>
 
         <!--関数関係 -->
-        <!-- 閲覧フォルダのIDの取得 -->
         <?php
-        $current_id = request()->path();
-        // 数字だけに変換
-        $cd = str_replace('todo/', '', $current_id);
+            $current_id = request()->path();
+            // 数字だけに変換
+            $cd = str_replace('todo/', '', $current_id);
         ?>
-        <!-- itemsはTodolistから -->
-        @foreach($items as $item)
-        <!--items2はFolderから  -->
-
-
+        <!-- 繰り返し開始 -->
+        @foreach($items as $todo)
         <!-- 閲覧中のフォルダIDとタスクのフォルダIDが一致したらタスクを表示 -->
-        @if($item->todo_folder == $cd)
+        @if($cd == $todo->todo_folder)
 
         <tr>
-            <td>{{$item->getName()}}</td>
+            <td>{{$todo->getName()}}</td>
             <!--
                 #状態変化の表示
 
@@ -52,23 +54,25 @@
                 3は完了
             -->
 
-            @if($item->todo_state==1)
+            @if($todo->todo_state==1)
             <td>未着手</td>
-            @elseif($item->todo_state==2)
+            @elseif($todo->todo_state==2)
             <td>進行中</td>
-            @else($item->todo_state==3)
+            @else($todo->todo_state==3)
             <td>完了</td>
             @endif
 
             <!-- 期日の表示 -->
-            <td>{{$item->todo_due}}</td>
+            <td>{{$todo->todo_due}}</td>
 
             <td>編集画面へ</td>
         </tr>
-        @else
+        <!-- 追加の文言は一回だけ表示する -->
+        @elseif($loop->index == 0)
         <div class ="message">+ToDoでタスクを追加してください</div>
         @endif
         @endforeach
+        <!-- 繰り返し終了 -->
 
     </table>
 @endsection
