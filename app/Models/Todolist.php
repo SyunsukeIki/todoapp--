@@ -9,14 +9,17 @@ class Todolist extends Model
 {
     use HasFactory;
 
+    // 名前表示
     public function getName(){
         return $this->todo_name;
     }
 
+    //進行状況の表示
     public function getState(){
         return $this->todo_state;
     }
 
+    // 期限の表示
     public function getDue(){
         return $this->todo_due;
     }
@@ -28,7 +31,6 @@ class Todolist extends Model
 
     // バリデーションのルール
     protected $guarded = array('id');
-
     public static $rules = array(
         'todo_name' => 'required'
     );

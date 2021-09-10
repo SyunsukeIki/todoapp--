@@ -23,7 +23,6 @@ class Folder extends Model
 
     // バリデーションのルール
     protected $guarded = array('id');
-
     public static $rules = array(
         'folder_name' => 'required'
     );
@@ -33,7 +32,7 @@ class Folder extends Model
         return $this->hasMany(Todolist::class,'todo_folder');
     }
 
-    
+
 
 
 }
