@@ -26,8 +26,13 @@
                 {{csrf_field()}}
                 <tr>
                     <th>新規フォルダ名</th>
-                    <td><input type="text" name="folder_name" value="{{old('folder_name')}}"></td>
-                    <td><input type="submit" value="send"></td>
+                    <td>
+                        <input type="text" name="folder_name"
+                         value="{{old('folder_name')}}">
+                    </td>
+                    <td>
+                        <input type="submit" value="send">
+                    </td>
                 </tr>
             </form>
         </table>

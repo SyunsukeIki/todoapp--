@@ -9,16 +9,10 @@
 @endsection
 
 @section('content')
-    <?php
-        $current_id = request()->path();
-        // 数字だけ欲しいから、数字の前後を二回に分けてトリミング
-        $cd = str_replace('todo/','', $current_id);
-        $current = str_replace('/del','', $cd);
-    ?>
     <!-- 送信フォーム -->
     <div class = "form">
         <table>
-            <form action = "/{{$current}}/del" method="post">
+            <form action = "/{{$form->id}}/del" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>

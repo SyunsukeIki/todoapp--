@@ -9,16 +9,10 @@
 @endsection
 
 @section('content')
-    <?php
-        $current_id = request()->path();
-        // 数字だけ欲しいから、数字の前後を二回に分けてトリミング
-        $cd = str_replace('todo/','', $current_id);
-        $current = str_replace('/del','', $cd);
-    ?>
     <!-- 送信フォーム -->
     <div class = "form">
         <table>
-            <form action = "/todo/{{$current}}/del" method="post">
+            <form action = "/todo/{{$form->id}}/del" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>
@@ -32,7 +26,9 @@
                     <td>{{$form->todo_state}}</td>
                 </tr>
                     <th></th>
-                    <input type="hidden" name="todo_folder" value="{{$form->todo_folder}}">
+                    <!-- 閲覧中のフォルダのIDを自動的に挿入 -->
+                    <input type="hidden" name="todo_folder"
+                    value="{{$form->todo_folder}}">
                     <td><input type="submit" value="delete"></td>
                 </tr>
             </form>

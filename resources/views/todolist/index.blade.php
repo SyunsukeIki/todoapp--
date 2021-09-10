@@ -1,5 +1,3 @@
-
-
 @extends('layouts.todoapp')
 
 @section('title','ToDoApp')
@@ -37,12 +35,11 @@
             $cd = str_replace('todo/', '', $current_id);
         ?>
         <!-- 繰り返し開始 -->
-        @foreach($items as $todo)
-        <!-- 閲覧中のフォルダIDとタスクのフォルダIDが一致したらタスクを表示 -->
-        @if($cd == $todo->todo_folder)
-
+        @foreach($todoitems as $todoitem)
+        @if($cd == $todoitem->todo_folder)
         <tr>
-            <td>{{$todo->getName()}}</td>
+            <td>{{$todoitem->getName()}}</td>
+
             <!--
                 #状態変化の表示
 
@@ -52,31 +49,29 @@
 
                 3は完了
             -->
-
-            @if($todo->todo_state==1)
-            <td class="start">未着手</td>
-            @elseif($todo->todo_state==2)
-            <td class="ing">進行中</td>
-            @else($todo->todo_state==3)
+            @if($todoitem->todo_state==1)
+            <td class="start">
+                未着手
+            </td>
+            @elseif($todoitem->todo_state==2)
+            <td class="ing">
+                進行中
+            </td>
+            @else($todoitem->todo_state==3)
             <td class="done">完了</td>
             @endif
 
             <!-- 期日の表示 -->
-            <td>{{$todo->todo_due}}</td>
-            <!-- todolistsのidを取得 -->
-            <td><a href = "{{$todo->id}}/edit">編集画面</td></a>
+            <td>{{$todoitem->todo_due}}</td>
+            <!-- todolistsのidを取得、編集画面へ -->
+            <td><a href = "{{$todoitem->id}}/edit">編集画面</td></a>
         </tr>
-        <!-- 追加の文言は一回だけ表示する -->
         @elseif($loop->index == 0)
         <div class ="message">+ToDoでタスクを追加してください</div>
         @endif
         @endforeach
-        <!-- 繰り返し終了 -->
-
     </table>
 @endsection
-
-
 
 @section('footer')
 copyright 2021

@@ -8,24 +8,24 @@ use App\Models\Todolist;
 
 class TodolistController extends Controller
 {
+
+    // 一覧の表示
     public function index(Request $request){
-        // Todolist.php のモデルから取り出す
-        $items = Todolist::all();
-        // Folder.php のモデルから取り出す
-        return view('todolist.index',[
-            'items' => $items,
-        ]);
+        // todolist.php のモデルから取り出す
+        $todoitems = Todolist::all();
+        $todo = Todolist::find($request->id);
+        return view('todolist.index',['todoitems' => $todoitems , 'form' => $todo,]);
     }
 
     //タスクの追加(GET)
-    public function add(Request $request){
-        $items = Todolist::all();
-        return view('todolist.add',[
-            'items' => $items
-        ]);
+    public function add(Request $request)
+    {
+        return view('todolist.add');
     }
     //タスクの追加(POST)
-    public function create(Request $request){
+    public function create(Request $request)
+    {
+        // バリデーション
         $this->validate($request, Todolist::$rules);
         $todolist = new Todolist();
         $form = $request->all();
@@ -35,12 +35,14 @@ class TodolistController extends Controller
     }
 
     // タスクの編集
-    public function edit(Request $request){
+    public function edit(Request $request)
+    {
         $todo = Todolist::find($request->id);
         return view('todolist.edit',['form' => $todo]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $this->validate($request, Todolist::$rules);
         $todo = Todolist::find($request->id);
         $form = $request->all();
@@ -51,12 +53,14 @@ class TodolistController extends Controller
     }
 
     // タスクの削除
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         $todo = Todolist::find($request->id);
         return view('todolist.del',['form' => $todo]);
     }
 
-    public function remove(Request $request){
+    public function remove(Request $request)
+    {
         Todolist::find($request->id)->delete();
         return redirect('/folder');
 

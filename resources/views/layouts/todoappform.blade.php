@@ -7,17 +7,17 @@
     <title>@yield('title')</title>
     <style>
          body{font-family: 'Noto Sans JP', sans-serif;}
-         h1  {text-align: center; background-color:#96969e;}
+         h1  {text-align: center; background-color:#96969e; }
          .footer{text-align: right; font-size: 10pt; margin: 10px;
-                border-bottom: solid 1px #ccc; color: #ccc; }
-        .content{height: 100%; margin-bottom: 35%;}
+                border-bottom: solid 1px #ccc; color: #ccc; font-weight: bold;}
+        .content{height: 100%; margin-bottom: 33%;}
         table{margin: auto; padding-top: 4%;}
-        th {background-color: #999; color:fff; padding: 5px 10px;  text-align: left; position: center;}
-        td {border: solid 1px #aaa; color:#999; padding: 5px 10px; text-align: left; position: center;}
-        a  {text-decoration: none; color: black; text-align:}
-        .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #c8d4e8}
+        th {background-color: #999; color:fff; padding: 5px 10px;  text-align: left; position: center; font-weight: bold;}
+        td {border: solid 1px #aaa; color:#999; padding: 5px 10px; text-align: left; position: center; font-weight: bold;}
+        a  {text-decoration: none; color: black; font-weight: bold;}
+        .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #84DCC6}
         .add:hover{transform: scale(0.97,0.97);}
-        .del{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #6a9c8d; opacity:0.85;
+        .del{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #ABA8B2; opacity:0.85;
         }
         .del:hover{transform: scale(0.99,0.99); cursor: pointer; }
         table tbody tr td.start{color:red;}
