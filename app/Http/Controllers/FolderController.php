@@ -5,21 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Folder;
 
+use Illuminate\Support\Facades\DB;
+
 class FolderController extends Controller
 {
     // 一覧表示
+    // public function index(Request $request){
+    //     // folder.php のモデルから取り出す
+    //     $folderitems = Folder::all();
+    //     // views\folder\indexに$itemsを渡す
+    //     return view('folder.index',['folderitems' => $folderitems]);
+    // }
+
+    // ページネーション
     public function index(Request $request){
-        // folder.php のモデルから取り出す
-        $folderitems = Folder::all();
-        // views\folder\indexに$itemsを渡す
-        return view('folder.index',['folderitems' => $folderitems]);
+    $page = DB::table('folders')->Paginate(2);
+    return view ('folder.index',['page' => $page]);
     }
 
     //フォルダの追加(GET)
     public function add(Request $request){
         return view('folder.add');
     }
-    
+
     //フォルダの追加(POST)
     public function create(Request $request){
         $this->validate($request, Folder::$rules);
@@ -57,6 +65,20 @@ class FolderController extends Controller
         Folder::find($request->id)->delete();
         return redirect('/folder');
     }
+
+    // 検索(GET)
+    public function find(Request $request){
+        return view('folder.find', ['input' => '']);
+    }
+
+    // 検索(POST)
+    public function search(Request $request){
+        $search = Folder::where('folder_name' , $request->input)->first();
+        $param = ['input' => $request->input, 'search' => $search];
+        return view('folder.find',$param);
+    }
+
+
 
 
 }

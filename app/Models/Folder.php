@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
 
 
@@ -11,7 +12,7 @@ class Folder extends Model
 {
     use HasFactory;
 
-    // 表示
+    // 表示と検索
     public function getName(){
         return $this->folder_name ;
     }
@@ -32,7 +33,9 @@ class Folder extends Model
         return $this->hasMany(Todolist::class,'todo_folder');
     }
 
-
-
+    // 検索
+    public function getDate(){
+        return $this->created_at->format('Y年m月d日');
+    }
 
 }

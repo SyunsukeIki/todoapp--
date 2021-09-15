@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// ログイン後の画面(フォルダ一覧)
+// フォルダ一覧
 Route::get('folder','FolderController@index');
 
 // フォルダの追加
@@ -39,11 +39,22 @@ Route::post('folder/{id}/edit', 'FolderController@update')->name('folder.getId')
 Route::get('folder/{id}/del', 'FolderController@delete')->name('folder.getId');
 Route::post('folder/{id}/del', 'FolderController@remove')->name('folder.getId');
 
+// フォルダの情報検索
+Route::get('folder/info', 'FolderController@find');
+Route::post('folder/info', 'FolderController@search');
+
 
 // ToDoの一覧
 Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
 
-// ToDoの追加
+// Doneの一覧
+Route::get('todo/{id}/done', 'TodolistController@done')->name('folder.getId');
+
+// Doneの検索
+Route::get('todo/{id}/done/search', 'TodolistController@find')->name('folder.getId');
+Route::post('todo/{id}/done/search', 'TodolistController@search')->name('folder.getId');
+
+// Todoの追加
 Route::get('todo/{id}/add', 'TodolistController@add')->name('folder.getId');
 Route::post('todo/{id}/add', 'TodolistController@create')->name('folder.getId');
 
@@ -54,3 +65,5 @@ Route::post('todo/{id}/edit', 'TodolistController@update')->name('folder.getId')
 // ToDoの削除
 Route::get('todo/{id}/del', 'TodolistController@delete')->name('folder.getId');
 Route::post('todo/{id}/del', 'TodolistController@remove')->name('folder.getId');
+
+

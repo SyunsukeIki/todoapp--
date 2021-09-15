@@ -3,7 +3,6 @@
 @section('title','ToDoApp')
 
 @section('add')
-
     <!--削除画面へのリンク  -->
     <div class = "del">
         <a href = "/todo/{{$form->id}}/del">削除画面へ</a>

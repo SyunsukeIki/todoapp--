@@ -38,5 +38,5 @@
 @endsection
 
 @section('footer')
-copyright 2021
+copyright 2021　
 @endsection

@@ -5,16 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 use App\Models\Todolist;
+use Illuminate\Support\Facades\DB;
 
 class TodolistController extends Controller
 {
 
     // 一覧の表示
+    // public function index(Request $request){
+    //     // todolist.php のモデルから取り出す
+    //     $todoitems = Todolist::all();
+    //     $todo = Todolist::find($request->id);
+    //     return view('todolist.index', ['todoitems' => $todoitems , 'form' => $todo,]);
+    // }
+
+    // ページネーション
     public function index(Request $request){
-        // todolist.php のモデルから取り出す
-        $todoitems = Todolist::all();
-        $todo = Todolist::find($request->id);
-        return view('todolist.index',['todoitems' => $todoitems , 'form' => $todo,]);
+        $page = DB::table('todolists')->Paginate(2);
+        return view ('todolist.index',['page' => $page]);
     }
 
     //タスクの追加(GET)
@@ -34,13 +41,14 @@ class TodolistController extends Controller
         return redirect('/folder');
     }
 
-    // タスクの編集
+    // タスクの編集(GET)
     public function edit(Request $request)
     {
         $todo = Todolist::find($request->id);
-        return view('todolist.edit',['form' => $todo]);
+        return view('todolist.edit', ['form' => $todo]);
     }
 
+    // タスクの編集(POST)
     public function update(Request $request)
     {
         $this->validate($request, Todolist::$rules);
@@ -52,19 +60,42 @@ class TodolistController extends Controller
 
     }
 
-    // タスクの削除
+    // タスクの削除(GET)
     public function delete(Request $request)
     {
         $todo = Todolist::find($request->id);
-        return view('todolist.del',['form' => $todo]);
+        return view('todolist.del', ['form' => $todo]);
     }
 
+    // タスクの削除(POST)
     public function remove(Request $request)
     {
         Todolist::find($request->id)->delete();
         return redirect('/folder');
 
     }
+
+    // 完了済みフォルダの表示
+    public function done(Request $request){
+        $page = DB::table('todolists')->Paginate(3);
+        return view ('todolist.done',['page' => $page]);
+    }
+
+    // 検索(GET)
+    public function find(Request $request){
+        return view('todolist.search', ['input'=>'']);
+    }
+
+    // 検索(POST)
+    public function search(Request $request){
+        // where(フィールド名 , 値)->get();
+        $search = Todolist::where('todo_name' , $request->input)->first();
+        $param = ['input' => $request->input, 'search' => $search];
+        return view('todolist.search', $param);
+    }
+
+
+
 
 
 

@@ -1,15 +1,26 @@
 
 
 @extends('layouts.todoapp')
+<style>
+    .pagination {font-size: 15pt; padding-left: 48%;}
+    .pagination li {display: inline-block;}
+</style>
 
 
 @section('title','ToDoApp')
 
 @section('add')
-<!-- フォルダの追加 -->
-<div class = "add">
-<a href = "folder/add">+folder</a>
-</div>
+
+<ul class="menu">
+    <li class="menu__single">
+        <a href="#" class="init-bottom">Menu</a>
+        <ul class="menu__second-level">
+            <li><a href="folder/add">フォルダの追加</a></li>
+            <li><a href="folder/info">フォルダの情報を見る</a></li>
+        </ul>
+    </li>
+</ul>
+
 @endsection
 
 @section('content')
@@ -19,16 +30,16 @@
             <th>フォルダ名</th>
             <th>編集</th>
         </tr>
-        @foreach($folderitems as $folderitem)
+        @foreach($page as $folderitem)
         <tr>
-            <td><a href = "todo/{{$folderitem->getId()}}">{{$folderitem->getName()}}</td></a>
-            <td><a href = "folder/{{$folderitem->getId()}}/edit">編集画面へ</td>
+            <td><a href = "todo/{{$folderitem->id}}">{{$folderitem->folder_name}}</td></a>
+            <td><a href = "folder/{{$folderitem->id}}/edit">編集画面へ</td>
         </tr>
         @endforeach
     </table>
-
+    {{ $page->links()}}
 @endsection
 
 @section('footer')
-copyright 2021
+
 @endsection

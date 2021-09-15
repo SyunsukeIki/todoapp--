@@ -5,29 +5,29 @@
     .pagination li {display: inline-block;}
 </style>
 
-
 @section('title','ToDoApp')
 
 @section('add')
 
-<!-- 閲覧フォルダのIDの取得 -->
-    <?php
-        $current_id = request()->path();
-        // 数字だけに変換
-        $cd = str_replace('todo/', '', $current_id);
-    ?>
-    <ul class="menu">
+<ul class="menu">
         <li class="menu__single">
             <a href="#" class="init-bottom">Menu</a>
             <ul class="menu__second-level">
-                <li><a href="/todo/{{$cd}}/add">タスクの追加</a></li>
-                <li><a href="/todo/{{$cd}}/done">完了済みタスク</a></li>
+                <li><a href="done/search">タスクの検索</a></li>
             </ul>
         </li>
     </ul>
 
 
 @endsection
+
+<?php
+        // 現在のURLの取得
+        $current_id = request()->path();
+        // 数字(閲覧中のフォルダID)だけに変換
+        $cuid = str_replace('todo/', '', $current_id);
+        $cd = str_replace('/done', '', $cuid);
+    ?>
 
 <!-- メインのテーブル -->
 @section('content')
@@ -40,16 +40,9 @@
             <th>編集</th>
         </tr>
 
-        <!--変数 -->
-        <?php
-            // 現在のURLの取得
-            $current_id = request()->path();
-            // 数字(閲覧中のフォルダID)だけに変換
-            $cd = str_replace('todo/', '', $current_id);
-        ?>
         <!-- 繰り返し開始 -->
         @foreach($page as $todoitem)
-        @if($cd == $todoitem->todo_folder && $todoitem->todo_state<>3)
+        @if($cd == $todoitem->todo_folder && $todoitem->todo_state == 3)
         <tr>
             <td>{{$todoitem->todo_name}}</td>
 
@@ -77,14 +70,14 @@
             <!-- 期日の表示 -->
             <td>{{$todoitem->todo_due}}</td>
             <!-- todolistsのidを取得、編集画面へ -->
-            <td><a href = "{{$todoitem->id}}/edit">編集画面</td></a>
+
+
+            <td><a href = "/todo/{{$todoitem->id}}/edit">編集画面</td></a>
         </tr>
-        @elseif($loop->index == 0)
-        <div class ="message">Menuから「タスクの追加」をしてください</div>
         @endif
         @endforeach
     </table>
-    {{ $page->links()}}
+    {{$page->links()}}
 @endsection
 
 @section('footer')

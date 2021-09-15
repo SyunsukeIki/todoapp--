@@ -9,7 +9,7 @@ class Todolist extends Model
 {
     use HasFactory;
 
-    // 名前表示
+    // 名前表示と検索
     public function getName(){
         return $this->todo_name;
     }
@@ -34,6 +34,16 @@ class Todolist extends Model
     public static $rules = array(
         'todo_name' => 'required'
     );
+
+    // 検索(作成日)
+    public function getDate(){
+        return $this->created_at->format('Y年m月d日');
+    }
+
+    // 検索(最終更新日　＝　タスク完了日)
+    public function getDone(){
+        return $this->updated_at->format('Y年m月d日');
+    }
 
     // belongs to 結合処理
     public function todolist(){
