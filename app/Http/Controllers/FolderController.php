@@ -11,10 +11,10 @@ class FolderController extends Controller
 {
     // 一覧表示
     // public function index(Request $request){
-    //     // folder.php のモデルから取り出す
-    //     $folderitems = Folder::all();
-    //     // views\folder\indexに$itemsを渡す
-    //     return view('folder.index',['folderitems' => $folderitems]);
+        // folder.php のモデルから取り出す
+        // $folderitems = Folder::all();
+        // views\folder\indexに$itemsを渡す
+        // return view('folder.index',['folderitems' => $folderitems]);
     // }
 
     // ページネーション
@@ -68,15 +68,21 @@ class FolderController extends Controller
 
     // 検索(GET)
     public function find(Request $request){
-        return view('folder.find', ['input' => '']);
+        $folderitems = Folder::all();
+        return view('folder.find', ['input' => '', 'folderitems' =>$folderitems]);
     }
 
     // 検索(POST)
     public function search(Request $request){
+        $folderitems = Folder::all();
         $search = Folder::where('folder_name' , $request->input)->first();
-        $param = ['input' => $request->input, 'search' => $search];
-        return view('folder.find',$param);
+        $param = ['input' => $request->input,
+                  'search' => $search ,
+                  'folderitems' => $folderitems];
+        return view('folder.find' , $param);
     }
+
+
 
 
 

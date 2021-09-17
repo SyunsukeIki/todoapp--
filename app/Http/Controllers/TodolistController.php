@@ -83,14 +83,19 @@ class TodolistController extends Controller
 
     // 検索(GET)
     public function find(Request $request){
-        return view('todolist.search', ['input'=>'']);
+        $todoitems = Todolist::all();
+        return view('todolist.search', ['input'=>'',
+        'todoitems' => $todoitems]);
     }
 
     // 検索(POST)
     public function search(Request $request){
         // where(フィールド名 , 値)->get();
-        $search = Todolist::where('todo_name' , $request->input)->first();
-        $param = ['input' => $request->input, 'search' => $search];
+        $search = Todolist::nameEqual($request->input)->first();
+        $todoitems = Todolist::all();
+        $param = ['input' => $request->input,
+                  'search' => $search,
+                  'todoitems' => $todoitems,];
         return view('todolist.search', $param);
     }
 

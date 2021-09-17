@@ -18,8 +18,13 @@
             <tr>
                 <th>検索</th>
                 <td>
-                    <input type="text" name="input"
-                        value="{{old('input')}}" placeholder="タスク名を入力">
+                    <select name="input">
+                    @foreach($folderitems as $folderitem)
+                        <option value="{{$folderitem->folder_name}}"
+                            label = "{{$folderitem->folder_name}}">
+                        </option>
+                    @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="submit" value="find">

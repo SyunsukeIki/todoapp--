@@ -49,4 +49,9 @@ class Todolist extends Model
     public function todolist(){
         return $this->belongsTo(Folder::class,'todo_folder');
     }
+
+    // スコープ
+    public function scopeNameEqual($query , $str){
+        return $query->where('todo_name' , $str);
+    }
 }

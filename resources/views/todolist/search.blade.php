@@ -25,8 +25,13 @@
             <tr>
                 <th>検索</th>
                 <td>
-                    <input type="text" name="input"
-                        value="{{old('input')}}">
+                <select name="input">
+                    @foreach($todoitems as $todoitem)
+                        <option value="{{$todoitem->todo_name}}"
+                            label = "{{$todoitem->todo_name}}">
+                        </option>
+                    @endforeach
+                    </select>
                 </td>
                 <td>
                     <input type="submit" value="find">
