@@ -6,7 +6,7 @@
 </style>
 
 
-@section('title','ToDoApp')
+@section('title','TODOAPP')
 
 @section('add')
 

@@ -5,7 +5,7 @@
     .pagination li {display: inline-block;}
 </style>
 
-@section('title','ToDoApp')
+@section('title','TODOAPP/serch')
 
 @section('add')
 

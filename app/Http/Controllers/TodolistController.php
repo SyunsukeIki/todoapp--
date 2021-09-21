@@ -20,7 +20,7 @@ class TodolistController extends Controller
 
     // ページネーション
     public function index(Request $request){
-        $page = DB::table('todolists')->Paginate(2);
+        $page = DB::table('todolists')->Paginate(5);
         return view ('todolist.index',['page' => $page]);
     }
 

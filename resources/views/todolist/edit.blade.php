@@ -1,6 +1,6 @@
 @extends('layouts.todoappform')
 
-@section('title','ToDoApp')
+@section('title','TODOAPP/edit')
 
 @section('add')
     <!--削除画面へのリンク  -->

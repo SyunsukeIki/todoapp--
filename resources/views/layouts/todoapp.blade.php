@@ -7,12 +7,12 @@
     <!-- <link rel="stylesheet" type="text/css" href="/css/app.css"> -->
     <title>@yield('title')</title>
     <style>
-        h1{text-align: center; background-color:#95A3B3; font-family: 'Anton', sans-serif; border-radius: 6px;}
+        h1{text-align: center; background-color:#96969e; font-family: 'Anton', sans-serif; border-radius: 6px;}
         .footer{text-align: right; font-size: 10pt; margin: 10px;
                 border-bottom: solid 1px #ccc; color: #ccc; font-weight: bold; }
         .content{height: 100%; margin-bottom: 26%;}
         table {width: 100%;}
-        th {background-color: #222222; color:#FFFFFF; padding: 5px 10px; width:80%; text-align: left; border-radius: 6px;}
+        th {background-color: #aaa; color:#FFFFFF; padding: 5px 10px; width:80%; text-align: left; border-radius: 6px;}
         td {border: solid 1px #aaa; color:#999; padding: 5px 10px;width:20%; text-align: left; font-weight: bold;  color: black; border-radius: 7px;}
         .tableContents{height: 100%;}
         a{text-decoration: none; color: black; font-weight: bold; border-radius: 6px;}
@@ -38,7 +38,7 @@
             width: 100%;
             height: 50px;
             line-height: 50px;
-            background: rgb(29, 33, 19);
+            background-color: #aaa;
             border-radius: 7px;
         }
 

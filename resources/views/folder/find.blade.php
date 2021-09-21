@@ -2,7 +2,7 @@
 
 @extends('layouts.todoappform')
 
-@section('title','ToDoApp')
+@section('title','TODOAPP/info')
 
 @section('add')
 
