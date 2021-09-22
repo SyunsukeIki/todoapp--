@@ -18,9 +18,9 @@
     ?>
     <ul class="menu">
         <li class="menu__single">
-            <a href="#" class="init-bottom">Menu</a>
+            <a href="#" class="init-bottom">メニュー</a>
             <ul class="menu__second-level">
-                <li><a href="/todo/{{$cd}}/add">タスクの追加</a></li>
+                <li><a href="/todo/{{$cd}}/add">タスクの追加</i></a></li>
                 <li><a href="/todo/{{$cd}}/done">完了済みタスク</a></li>
             </ul>
         </li>
@@ -31,6 +31,13 @@
 
 <!-- メインのテーブル -->
 @section('content')
+     <!--変数 -->
+    <?php
+        // 現在のURLの取得
+        $current_id = request()->path();
+        // 数字(閲覧中のフォルダID)だけに変換
+        $cd = str_replace('todo/', '', $current_id);
+    ?>
     <table>
         <!-- 見出し -->
         <tr>
@@ -39,16 +46,7 @@
             <th>期日</th>
             <th>編集</th>
         </tr>
-
-        <!--変数 -->
-        <?php
-            // 現在のURLの取得
-            $current_id = request()->path();
-            // 数字(閲覧中のフォルダID)だけに変換
-            $cd = str_replace('todo/', '', $current_id);
-        ?>
-        <!-- 繰り返し開始 -->
-        @foreach($page as $todoitem)
+        @foreach($todolist as $todoitem)
         @if($cd == $todoitem->todo_folder && $todoitem->todo_state<>3)
         <tr>
             <td>{{$todoitem->todo_name}}</td>
@@ -77,14 +75,15 @@
             <!-- 期日の表示 -->
             <td>{{$todoitem->todo_due}}</td>
             <!-- todolistsのidを取得、編集画面へ -->
-            <td><a href = "{{$todoitem->id}}/edit">編集画面</td></a>
+            <td><a href = "{{$todoitem->id}}/edit">   <i class="fas fa-edit"></i></td></a>
         </tr>
         @elseif($loop->index == 0)
-        <div class ="message">Menuから「タスクの追加」をしてください</div>
+        <div class ="message">メニューから「タスクの追加」をしてください</div>
         @endif
         @endforeach
     </table>
-    {{ $page->links()}}
+
+
 @endsection
 
 @section('footer')

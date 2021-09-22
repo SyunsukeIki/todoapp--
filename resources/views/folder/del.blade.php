@@ -12,7 +12,7 @@
     <!-- 送信フォーム -->
     <div class = "form">
         <table>
-            <form action = "/{{$form->id}}/del" method="post">
+            <form action = "/folder/{{$form->id}}/del" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>

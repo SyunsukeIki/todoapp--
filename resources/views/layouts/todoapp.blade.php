@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="/css/app.css"> -->
     <title>@yield('title')</title>
     <style>
@@ -24,6 +25,7 @@
         table tbody tr td.start{color: #ff2626; font-weight: bold;}
         table tbody tr td.ing{color:#a3dba2; font-weight: bold;}
         table tbody tr td.done {font-weight: bold;}
+
         .menu {
             position: relative;
             list-style-type: none;

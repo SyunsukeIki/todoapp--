@@ -10,48 +10,54 @@ class Todolist extends Model
     use HasFactory;
 
     // 名前表示と検索
-    public function getName(){
+    public function getName()
+    {
         return $this->todo_name;
     }
 
     //進行状況の表示
-    public function getState(){
+    public function getState()
+    {
         return $this->todo_state;
     }
 
     // 期限の表示
-    public function getDue(){
+    public function getDue()
+    {
         return $this->todo_due;
     }
 
     // タスク追加のURLのため
-    public function getID(){
+    public function getID()
+    {
         return $this->todo_folder;
     }
 
     // バリデーションのルール
     protected $guarded = array('id');
-    public static $rules = array(
-        'todo_name' => 'required'
+
+    public static $rules = array
+    (
+        'todo_name' => 'required',
+        'todo_due' => 'required',
     );
 
     // 検索(作成日)
-    public function getDate(){
+    public function getDate()
+    {
         return $this->created_at->format('Y年m月d日');
     }
 
     // 検索(最終更新日　＝　タスク完了日)
-    public function getDone(){
+    public function getDone()
+    {
         return $this->updated_at->format('Y年m月d日');
     }
 
     // belongs to 結合処理
-    public function todolist(){
-        return $this->belongsTo(Folder::class,'todo_folder');
+    public function todoList()
+    {
+        return $this->belongsTo(Folder::class, 'todo_folder');
     }
 
-    // スコープ
-    public function scopeNameEqual($query , $str){
-        return $query->where('todo_name' , $str);
-    }
 }

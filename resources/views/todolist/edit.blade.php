@@ -4,9 +4,15 @@
 
 @section('add')
     <!--削除画面へのリンク  -->
-    <div class = "del">
-        <a href = "/todo/{{$form->id}}/del">削除画面へ</a>
-    </div>
+
+    <ul class="menu">
+        <li class="menu__single">
+            <a href="#" class="init-bottom">メニュー</a>
+            <ul class="menu__second-level">
+            <li><a href = "/todo/{{$form->id}}/del"><i class="fas fa-trash"></i></a></li>
+        </ul>
+        </li>
+    </ul>
 
 @endsection
 

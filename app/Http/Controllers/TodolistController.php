@@ -10,18 +10,11 @@ use Illuminate\Support\Facades\DB;
 class TodolistController extends Controller
 {
 
-    // 一覧の表示
-    // public function index(Request $request){
-    //     // todolist.php のモデルから取り出す
-    //     $todoitems = Todolist::all();
-    //     $todo = Todolist::find($request->id);
-    //     return view('todolist.index', ['todoitems' => $todoitems , 'form' => $todo,]);
-    // }
-
-    // ページネーション
-    public function index(Request $request){
-        $page = DB::table('todolists')->Paginate(5);
-        return view ('todolist.index',['page' => $page]);
+    // 一覧表示
+    public function index(Request $request)
+    {
+        $todolist = Todolist::all();
+        return view('todolist.index' , ['todolist' => $todolist]);
     }
 
     //タスクの追加(GET)
@@ -29,6 +22,7 @@ class TodolistController extends Controller
     {
         return view('todolist.add');
     }
+
     //タスクの追加(POST)
     public function create(Request $request)
     {
@@ -82,14 +76,16 @@ class TodolistController extends Controller
     }
 
     // 検索(GET)
-    public function find(Request $request){
+    public function find(Request $request)
+    {
         $todoitems = Todolist::all();
         return view('todolist.search', ['input'=>'',
         'todoitems' => $todoitems]);
     }
 
     // 検索(POST)
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         // where(フィールド名 , 値)->get();
         $search = Todolist::nameEqual($request->input)->first();
         $todoitems = Todolist::all();
@@ -98,10 +94,5 @@ class TodolistController extends Controller
                   'todoitems' => $todoitems,];
         return view('todolist.search', $param);
     }
-
-
-
-
-
 
 }

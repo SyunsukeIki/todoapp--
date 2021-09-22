@@ -16,14 +16,20 @@
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>
-                    <th>ToDoSomething</th>
+                    <th>タスク名</th>
                     <td>{{$form->todo_name}}</td>
                 </tr>
-                    <th>ToDoDue</th>
+                    <th>期日</th>
                     <td>{{$form->todo_due}}</td>
                 <tr>
-                    <th>ToDoState</th>
-                    <td>{{$form->todo_state}}</td>
+                    <th>状態</th>
+                    @if($form->todo_state == 1)
+                    <td>未着手</td>
+                    @elseif($form->todo_state == 2)
+                    <td>進行中</td>
+                    @else
+                    <td>完了</td>
+                    @endif
                 </tr>
                     <th></th>
                     <!-- 閲覧中のフォルダのIDを自動的に挿入 -->

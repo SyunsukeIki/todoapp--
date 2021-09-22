@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Symfony\Contracts\Service\Attribute\Required;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Folder extends Model
@@ -37,5 +38,8 @@ class Folder extends Model
     public function getDate(){
         return $this->created_at->format('Y年m月d日');
     }
+
+    // 論理削除
+    use SoftDeletes;
 
 }
