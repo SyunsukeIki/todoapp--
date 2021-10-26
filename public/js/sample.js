@@ -9,6 +9,7 @@ check_message.addEventListener('click', function (e) {
   e.preventDefault();
 
   if (confirm('本当に削除しますか？')) {
+    document.doDelete.submit();
     return true;
   } else {
     alert('キャンセルされました');
