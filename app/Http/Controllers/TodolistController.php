@@ -32,7 +32,7 @@ class TodolistController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $todolist->fill($form)->save();
-        return redirect('/folder');
+        return redirect('folder');
     }
 
     // タスクの編集(GET)

@@ -1,6 +1,6 @@
 
 
-@extends('layouts.todoappform')
+@extends('layouts.tododelete')
 
 @section('title','TODOAPP/delete')
 
@@ -35,7 +35,7 @@
                     <!-- 閲覧中のフォルダのIDを自動的に挿入 -->
                     <input type="hidden" name="todo_folder"
                     value="{{$form->todo_folder}}">
-                    <td><input type="submit" value="delete"></td>
+                    <td><input type="submit" value="delete"　onclick="deleteMessage()"></td>
                 </tr>
             </form>
         </table>

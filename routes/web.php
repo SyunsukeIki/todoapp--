@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\ToDoController;
+use App\Http\Controllers\TodolistController;
+use App\Models\Todolist;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +48,7 @@ Route::post('folder/info', 'FolderController@search');
 
 
 // ToDoの一覧
-Route::get('todo/{id}', 'TodolistController@index')->name('folder.getId');
+Route::get('/todo/{id}', 'TodolistController@index');
 
 // Doneの一覧
 Route::get('todo/{id}/done', 'TodolistController@done')->name('folder.getId');

@@ -38,6 +38,7 @@
         @endforeach
     </table>
     {{ $page->links()}}
+    
 @endsection
 
 @section('footer')
