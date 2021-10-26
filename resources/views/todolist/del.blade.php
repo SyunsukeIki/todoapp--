@@ -12,7 +12,7 @@
     <!-- 送信フォーム -->
     <div class = "form">
         <table>
-            <form action = "/todo/{{$form->id}}/del" method="post">
+            <form action = "/todo/{{$form->id}}/del" method="post" onSubmit="return check_message()">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>
@@ -35,7 +35,7 @@
                     <!-- 閲覧中のフォルダのIDを自動的に挿入 -->
                     <input type="hidden" name="todo_folder"
                     value="{{$form->todo_folder}}">
-                    <td><input type="submit" value="delete"　onclick="deleteMessage()"></td>
+                    <td><input type="submit" value="delete" id="check_message"></td>
                 </tr>
             </form>
         </table>
