@@ -1,6 +1,6 @@
 require('./bootstrap');
 require("./fontawesome");
-require("./sample");
+require("./toDelete");
 
 import Alpine from 'alpinejs';
 

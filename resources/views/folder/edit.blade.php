@@ -8,6 +8,7 @@
     <?php
         $current_id = request()->path();
         // 数字だけ欲しいから、数字の前後を二回に分けてトリミング
+        // viewにコントローラのような記述をしてしまった改善点
         $cd = str_replace('folder/','', $current_id);
         $current = str_replace('/edit','', $cd);
     ?>

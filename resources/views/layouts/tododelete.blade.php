@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="/css/app.css"> -->
     <title>@yield('title')</title>
     <style>
+
         h1{text-align: center; background-color:#96969e; font-family: 'Anton', sans-serif; border-radius: 6px;}
         .footer{text-align: right; font-size: 10pt; margin: 10px;
                 border-bottom: solid 1px #ccc; color: #ccc; font-weight: bold; }
-        .content{height: 100%; margin-bottom: 26%;}
-        table {width: 100%;}
-        th {background-color: #aaa; color:#FFFFFF; padding: 5px 10px; width:80%; text-align: left; border-radius: 6px;}
-        td {border: solid 1px #aaa; color:#999; padding: 5px 10px;width:20%; text-align: left; font-weight: bold;  color: black; border-radius: 7px;}
+        .content{height: 100%; margin-bottom: 26%; }
+        table {margin-left:34%; margin-top: 5%;}
+        th {background-color: #aaa; color:#FFFFFF; padding: 5px 10px; width:20%; text-align: left; border-radius: 2px;}
+        td {border: solid 1px #aaa; color:#999; padding: 5px 10px; width:60%; text-align: left; font-weight: bold;  color: black; border-radius: 2px;}
         .tableContents{height: 100%;}
         a{text-decoration: none; color: black; font-weight: bold; border-radius: 6px;}
         .add{padding: 0.5em 1em; margin: 2em 0; border: double 5px #4ec4d3; width: 97%; background-color: #ABA8B2; border-radius: 6px;}
@@ -170,6 +170,6 @@
     </form>
 
     </div>
-    <script src="{{ mix('/js/sample.js') }}"></script>
+    <script src="{{ mix('/js/toDelete.js') }}"></script>
 </body>
 </html>

@@ -12,6 +12,7 @@
     <?php
         $current_id = request()->path();
         // 数字だけに変換
+        // 要改善
         $cd_todo = str_replace('todo/', '', $current_id);
         $cd_done = str_replace('/done', '', $cd_todo);
         $cd = str_replace('/search', '', $cd_done);

@@ -15,6 +15,7 @@
     <?php
         $current_id = request()->path();
         // 数字だけに変換
+        // 要改善
         $cd = str_replace('todo/', '', $current_id);
     ?>
     <ul class="menu">
@@ -35,6 +36,7 @@
      <!--変数 -->
     <?php
         // 現在のURLの取得
+        // 要改善
         $current_id = request()->path();
         // 数字(閲覧中のフォルダID)だけに変換
         $cd = str_replace('todo/', '', $current_id);
@@ -48,6 +50,12 @@
             <th>編集</th>
         </tr>
         @foreach($todolist as $todoitem)
+        <!--
+            フォルダ内容に基づいたタスクを表示
+            進行状況が3のタスクは非表示にする
+            また、完了済みタスク一覧に表示
+        -->
+
         @if($cd == $todoitem->todo_folder && $todoitem->todo_state<>3)
         <tr>
             <td>{{$todoitem->todo_name}}</td>
@@ -78,6 +86,7 @@
             <!-- todolistsのidを取得、編集画面へ -->
             <td><a href = "{{$todoitem->id}}/edit">   <i class="fas fa-edit"></i></td></a>
         </tr>
+        <!-- フォルダが空のときは以下の文言を表示 -->
         @elseif($loop->index == 0)
         <div class ="message">メニューから「タスクの追加」をしてください</div>
         @endif

@@ -18,9 +18,6 @@
                 <tr>
                     <th>フォルダ名</th>
                     <td>{{$form->folder_name}}</td>
-                </tr>
-                <tr>
-                    <th></th>
                     <td><input type="submit" value="delete" id="check_message"></td>
                 </tr>
             </form>

@@ -9711,7 +9711,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./fontawesome */ "./resources/js/fontawesome.js");
 
-__webpack_require__(/*! ./sample */ "./resources/js/sample.js");
+__webpack_require__(/*! ./toDelete */ "./resources/js/toDelete.js");
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
@@ -9773,10 +9773,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/sample.js":
-/*!********************************!*\
-  !*** ./resources/js/sample.js ***!
-  \********************************/
+/***/ "./resources/js/toDelete.js":
+/*!**********************************!*\
+  !*** ./resources/js/toDelete.js ***!
+  \**********************************/
 /***/ (() => {
 
 var check_message = document.getElementById('check_message');
