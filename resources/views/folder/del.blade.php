@@ -1,6 +1,6 @@
 
 
-@extends('layouts.todoappform')
+@extends('layouts.tododelete')
 
 @section('title','TODOAPP/delete')
 
@@ -12,7 +12,7 @@
     <!-- 送信フォーム -->
     <div class = "form">
         <table>
-            <form action = "/folder/{{$form->id}}/del" method="post">
+            <form action = "/folder/{{$form->id}}/del" method="post" onSubmit="return check_message()" name="doDelete">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$form->id}}">
                 <tr>
@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <td><input type="submit" value="delete"></td>
+                    <td><input type="submit" value="delete" id="check_message"></td>
                 </tr>
             </form>
         </table>
